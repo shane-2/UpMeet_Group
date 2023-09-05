@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from 'src/app/models/event';
+import { Favorite } from 'src/app/models/favorite';
 import { EventService } from 'src/app/services/events.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { EventService } from 'src/app/services/events.service';
 export class EventsListComponent implements OnInit {
 
   EventListResult:Event[] = [];
-
+  FavoriteListResult:Favorite[] = [];
+  name:string = "";
   constructor(private _eventService:EventService) { }
 
   ngOnInit(): void {
@@ -27,14 +29,24 @@ export class EventsListComponent implements OnInit {
     });
   }
 
-  DeleteOrder(id:number):void{
+  DeleteEvent(id:number):void{
     //feedback for user
-    let target:number = this.EventListResult.findIndex(o => o.id ==id);
+    let target:number = this.EventListResult.findIndex(e => e.id ==id);
     this.EventListResult.splice(target,1);
 
     this._eventService.DeleteEvent(id).subscribe((response:Event) => {
       console.log(response);
     });
   }
+  AddFavorites(name:string, newFavorite:Event):void{
+    let favorite:Favorite = {} as Favorite;
+    // this._eventService.AddFavorite();
+    favorite.event = newFavorite;
+    favorite.eventId = newFavorite.id;
+    favorite.username = name;
+    this.FavoriteListResult.push(favorite);
+
+  }
+
 
 }

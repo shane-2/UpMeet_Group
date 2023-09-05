@@ -1,1 +1,39 @@
 <p>events-list works!</p>
+<h3>Please enter your name</h3>
+<input type="text" [(ngModel)]="name"/>
+
+<table>
+<tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Date</th>
+</tr>
+<tr *ngFor="let e of EventListResult">
+    <td>{{ e.name }}</td>
+    <td>{{ e.location }}</td>
+    <td>{{ e.date }}</td>
+    <!-- <form (ngSubmit)="AddFavorite()">
+        <input
+          type="text"
+          placeholder="Title"
+          [(ngModel)]="newFavorite.name"
+          name="title"
+        />
+        <br/>
+        <br/>
+        <input
+          type="text"
+          placeholder="New Status"
+          [(ngModel)]="newPost.thought"
+          name="thought"
+        />
+        <br/><br/>
+        <button type="submit">Post!</button>
+      </form>
+    </div> -->
+    <td *ngIf="name != ''"><button (click)="AddFavorite(name, e)">Add To Favorites</button></td>
+</tr>
+
+
+
+</table>
