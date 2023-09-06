@@ -8,12 +8,24 @@
     <th>Location</th>
     <th>Date</th>
 </tr>
+
+
 <tr *ngFor="let e of EventListResult">
-    <td>{{ e.name }}</td>
+  
+  <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
+  >Fetch data</a>
+
+
+    <td>
+
+    <a routerLink="/event/{{e.id}}">{{ e.name }}</a>
+    </td> 
+  
     <td>{{ e.location }}</td>
     <td>{{ e.date }}</td>
     <td *ngIf="name != ''"><button (click)="AddFavorites(name, e)">Add To Favorites</button></td>
 </tr>
+
 
 
 

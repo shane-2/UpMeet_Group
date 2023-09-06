@@ -46,6 +46,12 @@ namespace Up_Meet_Group.Controllers
         }
 
 
+        [HttpGet("{id}")]
+        public Event GetById(int id)
+        {
+           return dbContext.Events.FirstOrDefault(e => e.Id == id);
+        }
+
 
 
     }

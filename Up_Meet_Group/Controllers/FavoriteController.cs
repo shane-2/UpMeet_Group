@@ -23,10 +23,14 @@ namespace Up_Meet_Group.Controllers
         [HttpPost]
         public Favorite AddFavorite([FromBody] Favorite newFav)
         {
-            dbContext.Favorites.Add(newFav);
+            Favorite favorite = new Favorite();
+            favorite.Username = newFav.Username;
+            favorite.EventId = newFav.EventId;
+            //favorite.Event = newFav.Event;
+            dbContext.Favorites.Add(favorite);
             dbContext.SaveChanges();
 
-            return newFav;
+            return favorite;
         }
 
 

@@ -32,6 +32,7 @@ import { FavoriteListComponent } from './components/favorite-list/favorite-list.
       { path: '', component: EventsListComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'single-event', component:SingleEventComponent }
     ])
   ],
   providers: [],

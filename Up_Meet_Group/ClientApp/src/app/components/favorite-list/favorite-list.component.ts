@@ -12,14 +12,17 @@ export class FavoriteListComponent implements OnInit {
   name:string = "shane"
 @Input() DisplayFavorite:Event = {} as Event;
 FavoriteListResult:Favorite[] = [];
+EventListResult:Event[] = [];
 
   constructor(private _favoriteService:EventService) { }
 
    ngOnInit(): void {
     this.DisplayFavorites(this.name);
+    this.DisplayEvents();
     }
 
    DisplayFavorites(name:string):void{
+     
      this._favoriteService.GetFavorites(name).subscribe((response:Favorite[]) =>{
        console.log(response);
       this.FavoriteListResult = response;
@@ -27,4 +30,10 @@ FavoriteListResult:Favorite[] = [];
 
    }
 
+   DisplayEvents(): void {
+    this._favoriteService.GetEvents().subscribe((response:Event[]) => {
+      console.log(response);
+      this.EventListResult = response;
+    });
+  }
 }

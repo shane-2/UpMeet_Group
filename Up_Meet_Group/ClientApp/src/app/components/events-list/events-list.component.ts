@@ -41,7 +41,6 @@ export class EventsListComponent implements OnInit {
   AddFavorites(name:string, newFavorite:Event):void{
     let favorite:Favorite = {} as Favorite;
     // this._eventService.AddFavorite();
-    favorite.event = newFavorite;
     favorite.eventId = newFavorite.id;
     favorite.username = name;
     this._eventService.AddFavorite(favorite).subscribe((response:Favorite) =>{

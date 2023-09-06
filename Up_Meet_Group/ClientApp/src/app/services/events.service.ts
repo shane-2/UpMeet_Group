@@ -35,4 +35,8 @@ export class EventService {
   DeleteFavorite(id:number):Observable<Favorite>{
     return this.http.delete<Favorite>(`${this.baseUrl}api/favorite/${id}`);
   }
+
+  GetEventId(id:number):Observable<Event>{
+    return this.http.get<Event>(`${this.baseUrl}api/event/${id}`);
+  }
 }

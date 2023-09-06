@@ -1,4 +1,6 @@
 <p>favorite-list works!</p>
+<input type="text" [(ngModel)]="name" />
+<button type="button" (click)="DisplayFavorites(name)">Show Favorites</button>
 
 <table>
     <tr>
@@ -7,8 +9,10 @@
 </tr>
 <tr *ngFor="let f of FavoriteListResult">
 <td>{{  f.username  }}</td>
+<div *ngFor="let e of EventListResult">
+<td *ngIf="f.eventId == e.id">{{ e.name }}</td>
 <!-- <td>{{ f.event.name }}</td> -->
 <!-- <td>{{ DisplayFavorite.name }}</td> -->
-
+</div>
 </tr>
 </table> 
