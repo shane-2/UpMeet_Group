@@ -9,7 +9,7 @@ import { EventService } from 'src/app/services/events.service';
   styleUrls: ['./events-list.component.css']
 })
 export class EventsListComponent implements OnInit {
-
+  e:Event = {} as Event;
   EventListResult:Event[] = [];
   FavoriteListResult:Favorite[] = [];
   name:string = "";

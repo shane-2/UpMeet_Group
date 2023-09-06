@@ -17,9 +17,11 @@ export class SingleEventComponent implements OnInit {
   ngOnInit(): void {
   const routeParams = this._route.snapshot.paramMap;
   let id: number = Number(routeParams.get("id"));
-  //console.log(id)
-  this.DisplayEvent = this._singleEventService.GetEventId(id);
-  console.log(this.DisplayEvent)
+  
+  this._singleEventService.GetEventId(id).subscribe((response:Event) =>{
+    console.log(response);
+this.DisplayEvent = response;
+  })
   }
 
 }

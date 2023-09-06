@@ -1,6 +1,22 @@
-<p>events-list works!</p>
+
 <h3>Please enter your name</h3>
 <input type="text" [(ngModel)]="name"/>
+
+<div>
+  <h1>Add an Event!</h1>
+  <p>Name:</p>
+  <input type="text" [(ngModel)]="e.name"/>
+  <p>Description:</p>
+  <input type="text" [(ngModel)]="e.description"/>
+  <p>Location:</p>
+  <input type="text" [(ngModel)]="e.location"/>
+  <p>Date and Time</p>
+  <input type="datetime" placeholder="yyyy/mm/dd 24:00:00" [(ngModel)]="e.date"/>
+  <br>
+  <button (click)="NewEvent(e)">Submit Event</button>
+  <br><br><br>
+  </div>
+
 
 <table>
 <tr>
@@ -8,27 +24,14 @@
     <th>Location</th>
     <th>Date</th>
 </tr>
-
-
-<tr *ngFor="let e of EventListResult">
-  
-  <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
-  >Fetch data</a>
-
-
+<tr *ngFor="let e of EventListResult">  
     <td>
-
-    <a routerLink="/event/{{e.id}}">{{ e.name }}</a>
+    <a routerLink="single-event/{{e.id}}">{{ e.name }}</a>
     </td> 
-  
     <td>{{ e.location }}</td>
     <td>{{ e.date }}</td>
     <td *ngIf="name != ''"><button (click)="AddFavorites(name, e)">Add To Favorites</button></td>
 </tr>
-
-
-
-
 </table>
  <br><br><br><br>
 <app-favorite-list></app-favorite-list> 
