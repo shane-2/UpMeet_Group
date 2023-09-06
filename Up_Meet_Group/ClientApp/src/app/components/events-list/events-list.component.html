@@ -12,28 +12,11 @@
     <td>{{ e.name }}</td>
     <td>{{ e.location }}</td>
     <td>{{ e.date }}</td>
-    <!-- <form (ngSubmit)="AddFavorite()">
-        <input
-          type="text"
-          placeholder="Title"
-          [(ngModel)]="newFavorite.name"
-          name="title"
-        />
-        <br/>
-        <br/>
-        <input
-          type="text"
-          placeholder="New Status"
-          [(ngModel)]="newPost.thought"
-          name="thought"
-        />
-        <br/><br/>
-        <button type="submit">Post!</button>
-      </form>
-    </div> -->
-    <td *ngIf="name != ''"><button (click)="AddFavorite(name, e)">Add To Favorites</button></td>
+    <td *ngIf="name != ''"><button (click)="AddFavorites(name, e)">Add To Favorites</button></td>
 </tr>
 
 
 
 </table>
+ <br><br><br><br>
+<app-favorite-list></app-favorite-list> 

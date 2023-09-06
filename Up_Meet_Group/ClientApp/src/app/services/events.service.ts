@@ -24,8 +24,8 @@ export class EventService {
   }
   
 
-  GetFavorites():Observable<Favorite[]>{
-    return this.http.get<Favorite[]>(`${this.baseUrl}api/favorite`)
+  GetFavorites(name:string):Observable<Favorite[]>{
+    return this.http.get<Favorite[]>(`${this.baseUrl}api/favorite/${name}`)
   }
 
   AddFavorite(newFavorite:Favorite):Observable<Favorite>{

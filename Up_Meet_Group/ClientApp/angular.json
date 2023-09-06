@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "Up_Meet_Group"
+  "defaultProject": "Up_Meet_Group",
+  "cli": {
+    "analytics": false
+  }
 }
