@@ -46,9 +46,39 @@ export class EventsListComponent implements OnInit {
     this._eventService.AddFavorite(favorite).subscribe((response:Favorite) =>{
       console.log(response)
       this.FavoriteListResult.push(response);
-    })
-
+    });
   }
 
-
+  // AddFavorites(name:string, newFavorite:Event):void{
+  //   let favorite:Favorite = {} as Favorite;    
+  //   // this._eventService.AddFavorite();
+  //   favorite.eventId = newFavorite.id;
+  //   favorite.username = name;
+  //   this.FavoriteListResult.forEach((f:Favorite)=>{
+  //     let x:number = 0;
+  //     if(favorite.eventId == f.eventId)
+  //     {
+  //         x++;
+        
+  //     }
+  //     if(x = 0)
+  //     {
+  //       this._eventService.AddFavorite(favorite).subscribe((response:Favorite) =>{
+  //         console.log(response)
+  //         this.FavoriteListResult.push(response);
+  //       });
+        
+  //     }
+  //   });     
+    
+    
+    
+  
+  // }
 }
+
+
+
+
+
+

@@ -1,6 +1,5 @@
 
-<h3>Please enter your name</h3>
-<input type="text" [(ngModel)]="name"/>
+
 
 <div>
   <h1>Add an Event!</h1>
@@ -11,18 +10,20 @@
   <p>Location:</p>
   <input type="text" [(ngModel)]="e.location"/>
   <p>Date and Time</p>
-  <input type="datetime" placeholder="yyyy/mm/dd 24:00:00" [(ngModel)]="e.date"/>
+  <input type="datetime-local" placeholder="yyyy/mm/dd 24:00:00" [(ngModel)]="e.date"/>
   <br>
   <button (click)="NewEvent(e)">Submit Event</button>
   <br><br><br>
   </div>
 
-
+  <h3>Please enter your name</h3>
+  <input type="text" [(ngModel)]="name"/>
 <table>
 <tr>
     <th>Name</th>
     <th>Location</th>
     <th>Date</th>
+    <th></th>
 </tr>
 <tr *ngFor="let e of EventListResult">  
     <td>
@@ -30,8 +31,8 @@
     </td> 
     <td>{{ e.location }}</td>
     <td>{{ e.date }}</td>
+    <td><button (click)="DeleteEvent(e.id)">Delete</button> </td>
     <td *ngIf="name != ''"><button (click)="AddFavorites(name, e)">Add To Favorites</button></td>
 </tr>
 </table>
  <br><br><br><br>
-<app-favorite-list></app-favorite-list> 

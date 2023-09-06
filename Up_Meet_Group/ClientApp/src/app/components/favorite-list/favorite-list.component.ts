@@ -9,7 +9,7 @@ import { EventService } from 'src/app/services/events.service';
   styleUrls: ['./favorite-list.component.css']
 })
 export class FavoriteListComponent implements OnInit {
-  name:string = "shane"
+  name:string = "";
 @Input() DisplayFavorite:Event = {} as Event;
 FavoriteListResult:Favorite[] = [];
 EventListResult:Event[] = [];
@@ -34,6 +34,16 @@ EventListResult:Event[] = [];
     this._favoriteService.GetEvents().subscribe((response:Event[]) => {
       console.log(response);
       this.EventListResult = response;
+    });
+  }
+
+  DeleteFavorite(id:number):void{
+    //feedback for user
+    let target:number = this.FavoriteListResult.findIndex(e => e.id ==id);
+    this.FavoriteListResult.splice(target,1);
+
+    this._favoriteService.DeleteFavorite(id).subscribe((response:Favorite) => {
+      console.log(response);
     });
   }
 }

@@ -31,8 +31,9 @@ import { FavoriteListComponent } from './components/favorite-list/favorite-list.
     RouterModule.forRoot([
       { path: '', component: EventsListComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'favorite-list', component: FavoriteListComponent },
       { path: 'single-event/:id', component:SingleEventComponent }
+
     ])
   ],
   providers: [],
