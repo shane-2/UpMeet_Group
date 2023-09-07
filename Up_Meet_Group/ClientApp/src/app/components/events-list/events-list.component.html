@@ -31,8 +31,8 @@
     <th>Name</th>
     <th>Location</th>
     <th>Date</th>
-    <th></th>
-    <th></th>
+    <th>Delete</th>
+    <th>Add to Favorites</th>
 </tr>
 <tr *ngFor="let e of EventListResult">  
     <td>
@@ -41,7 +41,8 @@
     <td>{{ e.location }}</td>
     <td>{{ e.date }}</td>
     <td><button (click)="DeleteEvent(e.id)">Delete</button> </td>
-    <td *ngIf="name != ''"><button (click)="AddFavorites(name, e)">Add To Favorites</button></td>
+    <td *ngIf="name != ''"><input type="checkbox" (click)="AddFavorites(name, e)"/>Add</td>
+    <!-- <td *ngIf="name != ''"><button (click)="AddFavorites(name, e)">Add To Favorites</button></td> -->
 </tr>
 </table>
 </div>
