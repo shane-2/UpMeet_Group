@@ -1,0 +1,32 @@
+th, td {
+    padding: 15px;
+    text-align: center;
+  }
+
+
+th {
+    background-color: #346d76;
+    color: white;
+  }
+
+table, td {
+    border: 1px solid;
+    background-color: white;
+  }
+
+
+.form {
+    background-color: white;
+    text-align: center;
+    font-family: cursive;
+}
+
+h1 {
+    background-color: #346d76;
+    color: white;
+}
+
+.namebox { 
+    text-align: right;
+    padding: 2%;
+}

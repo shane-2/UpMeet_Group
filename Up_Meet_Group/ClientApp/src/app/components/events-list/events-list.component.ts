@@ -6,35 +6,35 @@ import { EventService } from 'src/app/services/events.service';
 @Component({
   selector: 'app-events-list',
   templateUrl: './events-list.component.html',
-  styleUrls: ['./events-list.component.css']
+  styleUrls: ['./events-list.component.css'],
 })
 export class EventsListComponent implements OnInit {
-  e:Event = {} as Event;
-  EventListResult:Event[] = [];
-  FavoriteListResult:Favorite[] = [];
-  name:string = "";
-  constructor(private _eventService:EventService) { }
+  e: Event = {} as Event;
+  EventListResult: Event[] = [];
+  FavoriteListResult: Favorite[] = [];
+  name: string = '';
+  constructor(private _eventService: EventService) {}
 
   ngOnInit(): void {
-    this._eventService.GetEvents().subscribe((response:Event[]) => {
+    this._eventService.GetEvents().subscribe((response: Event[]) => {
       console.log(response);
       this.EventListResult = response;
     });
   }
 
-  NewEvent(newEvent:Event){
-    this._eventService.AddEvent(newEvent).subscribe((response:Event) => {
+  NewEvent(newEvent: Event) {
+    this._eventService.AddEvent(newEvent).subscribe((response: Event) => {
       console.log(response);
       this.EventListResult.push(response);
     });
   }
 
-  DeleteEvent(id:number):void{
+  DeleteEvent(id: number): void {
     //feedback for user
-    let target:number = this.EventListResult.findIndex(e => e.id ==id);
-    this.EventListResult.splice(target,1);
+    let target: number = this.EventListResult.findIndex((e) => e.id == id);
+    this.EventListResult.splice(target, 1);
 
-    this._eventService.DeleteEvent(id).subscribe((response:Event) => {
+    this._eventService.DeleteEvent(id).subscribe((response: Event) => {
       console.log(response);
     });
   }
@@ -49,36 +49,24 @@ export class EventsListComponent implements OnInit {
     });
   }
 
-  // AddFavorites(name:string, newFavorite:Event):void{
-  //   let favorite:Favorite = {} as Favorite;    
+  // AddFavorites(name: string, newFavorite: Event): void {
+  //   let x: number = 0;
+  //   let favorite: Favorite = {} as Favorite;
   //   // this._eventService.AddFavorite();
   //   favorite.eventId = newFavorite.id;
   //   favorite.username = name;
-  //   this.FavoriteListResult.forEach((f:Favorite)=>{
-  //     let x:number = 0;
-  //     if(favorite.eventId == f.eventId)
-  //     {
-  //         x++;
-        
+  //   this.FavoriteListResult.forEach((f: Favorite) => {
+  //     if (favorite.eventId == f.eventId) {
+  //       x++;
   //     }
-  //     if(x = 0)
-  //     {
-  //       this._eventService.AddFavorite(favorite).subscribe((response:Favorite) =>{
-  //         console.log(response)
+  //   });
+  //   if ((x = 0)) {
+  //     this._eventService
+  //       .AddFavorite(favorite)
+  //       .subscribe((response: Favorite) => {
+  //         console.log(response);
   //         this.FavoriteListResult.push(response);
   //       });
-        
-  //     }
-  //   });     
-    
-    
-    
-  
+  //   }
   // }
 }
-
-
-
-
-
-

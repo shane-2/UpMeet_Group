@@ -1,8 +1,9 @@
 
 
 
-<div>
+<div class="form">
   <h1>Add an Event!</h1>
+  <br>
   <p>Name:</p>
   <input type="text" [(ngModel)]="e.name"/>
   <p>Description:</p>
@@ -12,17 +13,25 @@
   <p>Date and Time</p>
   <input type="datetime-local" placeholder="yyyy/mm/dd 24:00:00" [(ngModel)]="e.date"/>
   <br>
+  <br>
   <button (click)="NewEvent(e)">Submit Event</button>
   <br><br><br>
   </div>
 
-  <h3>Please enter your name</h3>
+  <br>
+  <br>
+  <div class="namebox">
+  <h4>Please enter your name</h4>
   <input type="text" [(ngModel)]="name"/>
+  </div>
+  
+  <div class="form">
 <table>
 <tr>
     <th>Name</th>
     <th>Location</th>
     <th>Date</th>
+    <th></th>
     <th></th>
 </tr>
 <tr *ngFor="let e of EventListResult">  
@@ -35,4 +44,5 @@
     <td *ngIf="name != ''"><button (click)="AddFavorites(name, e)">Add To Favorites</button></td>
 </tr>
 </table>
+</div>
  <br><br><br><br>

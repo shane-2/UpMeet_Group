@@ -20,16 +20,40 @@ namespace Up_Meet_Group.Controllers
 
 
         // api/Favorite/
+        //[HttpPost]
+        //public Favorite AddFavorite([FromBody] Favorite newFav)
+        //{
+        //    Favorite favorite = new Favorite();
+        //    favorite.Username = newFav.Username;
+        //    favorite.EventId = newFav.EventId;
+        //    //favorite.Event = newFav.Event;
+        //    dbContext.Favorites.Add(favorite);
+        //    dbContext.SaveChanges();
+
+        //    return favorite;
+        //}
+
+        // api/Favorite/
         [HttpPost]
         public Favorite AddFavorite([FromBody] Favorite newFav)
         {
             Favorite favorite = new Favorite();
-            favorite.Username = newFav.Username;
-            favorite.EventId = newFav.EventId;
-            //favorite.Event = newFav.Event;
-            dbContext.Favorites.Add(favorite);
-            dbContext.SaveChanges();
-
+            int x = 0;
+            foreach (Favorite f in dbContext.Favorites)
+            {
+                if (newFav.Username == f.Username && newFav.EventId == f.EventId)
+                {
+                    x++;
+                }
+            }
+            if (x == 0)
+            {
+                favorite.Username = newFav.Username;
+                favorite.EventId = newFav.EventId;
+                //favorite.Event = newFav.Event;
+                dbContext.Favorites.Add(favorite);
+                dbContext.SaveChanges();
+            }
             return favorite;
         }
 
@@ -44,5 +68,6 @@ namespace Up_Meet_Group.Controllers
 
             return deleted;
         }
+
     }
 }

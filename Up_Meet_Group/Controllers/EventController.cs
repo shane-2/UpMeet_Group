@@ -35,9 +35,24 @@ namespace Up_Meet_Group.Controllers
 
 
         // api/Order/3
+        //[HttpDelete("{id}")]
+        //public Event DeleteById(int id)
+        //{
+        //    Event deleted = dbContext.Events.Find(id);
+        //    dbContext.Events.Remove(deleted);
+        //    dbContext.SaveChanges();
+
+        //    return deleted;
+        //}
+
+        // api/Order/3
         [HttpDelete("{id}")]
         public Event DeleteById(int id)
         {
+            Favorite delete = dbContext.Favorites.FirstOrDefault(x => x.EventId == id);
+            dbContext.Favorites.Remove(delete);
+
+
             Event deleted = dbContext.Events.Find(id);
             dbContext.Events.Remove(deleted);
             dbContext.SaveChanges();
