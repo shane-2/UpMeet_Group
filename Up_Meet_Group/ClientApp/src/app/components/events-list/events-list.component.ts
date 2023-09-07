@@ -12,7 +12,7 @@ export class EventsListComponent implements OnInit {
   e: Event = {} as Event;
   EventListResult: Event[] = [];
   FavoriteListResult: Favorite[] = [];
-  name: string = '';
+  name: string = 'Omar';
   constructor(private _eventService: EventService) {}
 
   ngOnInit(): void {

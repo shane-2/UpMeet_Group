@@ -14,6 +14,7 @@ public partial class Event
     public string? Location { get; set; }
 
     public DateTime? Date { get; set; }
+    public string? Img { get; set; }
 
     public virtual ICollection<Favorite> Favorites { get; set; } = new List<Favorite>();
 }

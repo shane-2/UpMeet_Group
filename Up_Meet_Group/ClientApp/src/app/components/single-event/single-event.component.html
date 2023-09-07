@@ -1,11 +1,12 @@
 <div>
 <h1>{{DisplayEvent.name}}</h1>
 <br>
-<h2>{{DisplayEvent.location}}</h2>
-
-<h2>{{DisplayEvent.date  | date:'short' }}</h2>
+<h2>Where: {{DisplayEvent.location}}</h2>
 <br>
-<h3>{{DisplayEvent.description}}</h3>
+<h2>When: {{DisplayEvent.date  | date:'short' }}</h2>
+<br>
+<h4>{{DisplayEvent.description}}</h4>
+<img height="300px" src="{{DisplayEvent.img}}">
 </div>
 
 

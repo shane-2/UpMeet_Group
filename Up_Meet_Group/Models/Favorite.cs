@@ -12,4 +12,5 @@ public partial class Favorite
     public int? EventId { get; set; }
 
     public virtual Event? Event { get; set; }
+    
 }
