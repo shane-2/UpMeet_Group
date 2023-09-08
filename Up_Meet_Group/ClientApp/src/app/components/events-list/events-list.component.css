@@ -12,6 +12,7 @@ th {
 table, td {
     border: 1px solid;
     background-color: white;
+    border-radius: 25px;
   }
 
 
@@ -19,6 +20,7 @@ table, td {
     background-color: white;
     text-align: center;
     font-family: cursive;
+    border-radius: 25px;
 }
 
 h1 {
